@@ -6,30 +6,15 @@ from Simple_drawing_window1 import *
 from Simple_drawing_window2 import *
 from Simple_drawing_window3 import *
 
-def one():
-    app = QApplication(sys.argv)
-    w = Simple_drawing_window_1()
-    w.show
-    return app.exec()
-
-
-def two():
-    app= QApplication(sys.argv)
-    w = Simple_drawing_window_2()
-    w.show
-    return app.exec()
-
-
-def three():
-    app = QApplication(sys.argv)
-    w = Simple_drawing_window_3()
-    w.show
-    return app.exec()
-
 def main():
-    one()
-    two()
-    three()
+    app = QApplication(sys.argv)
+    w1 = Simple_drawing_window_1()
+    w1.show()
+    w2 = Simple_drawing_window_2()
+    w2.show()
+    w3 = Simple_drawing_window_3()
+    w3.show()
+    return app.exec()
     
 if __name__ == '__main__':
     sys.exit(main())
