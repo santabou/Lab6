@@ -20,9 +20,12 @@ class Disk(object):
         turtle.forward(self.dwidth/2)
 
     def newpos(self,xpos,ypos):
+        turtle.penup()
         turtle.setpos(xpos,ypos)
+        turtle.pendown()
+        
     def cleardisk(self):
-        turtle.pencolor()
+        turtle.pencolor("white")
         turtle.setheading(90)
         turtle.forward(self.dwidth/2)
         turtle.left(90)
@@ -33,3 +36,4 @@ class Disk(object):
         turtle.forward(self.dheight)
         turtle.left(90)
         turtle.forward(self.dwidth/2)
+        turtle.pencolor("black")
