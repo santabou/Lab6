@@ -34,3 +34,43 @@ class DrawingWindow(QWidget):
     def mouseReleaseEvent(self, e):
         if e.button() == Qt.LeftButton:
             self.drawing = False
+    
+    def clear(self):
+       self.image.fill(Qt.white)
+       self.update()
+
+class SimplePaintProgram(QWidget):
+    def __init__(self):
+        QWidget.__init__(self, None)
+        self.setWindowTitle("Simple Paint Program")
+        self.setGeometry(0,0,500,300)
+
+        layout = QVBoxLayout()
+        self.drawingWindow = DrawingWindow()
+
+        self.label = QLabel()
+        self.label.setText("Drag the mouse to draw")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.clear_button = QPushButton("Clear", self)
+        self.clear_button.clicked.connect(self.drawingWindow.clear)
+        self.clear_button.setGeometry(10, 130, 340, 40)
+
+        layout.addWidget(self.drawingWindow)
+        layout.addWidget(self.label)
+        layout.addWidget(self.clear_button)
+        self.setLayout(layout)
+
+        self.show()
+
+
+def main():
+    app = QApplication(sys.argv)
+    
+    w = SimplePaintProgram()
+    w.show()
+
+    return app.exec()
+
+if __name__ == "__main__":
+    sys.exit(main())
